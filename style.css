@@ -1,1 +1,127 @@
-/* Add styles here */
+/* Basic Reset & Font */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1a1a2e; /* Deep dark blue */
+    background-image: linear-gradient(135deg, #1a1a2e 0%, #16213e 74%), url('data:image/svg+xml,...'); /* Gradient with subtle noise texture */
+    color: #e0e0e0; /* Light gray text */
+    text-align: center;
+}
+
+/* Main container with Glassmorphism effect */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem 3rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    max-width: 90%;
+    width: 600px;
+}
+
+/* Title */
+h1 {
+    font-size: 3rem; /* Larger font size */
+    font-weight: 900; /* Bolder */
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
+    margin-bottom: 2rem;
+}
+
+/* Lottery Balls Container */
+.numbers {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    min-height: 80px; /* Prevent layout shift */
+}
+
+/* Individual Lottery Ball */
+.number {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem; /* Larger number */
+    font-weight: 700;
+    color: #fff;
+    animation: fadeInScale 0.5s ease-out forwards;
+    /* Dynamic background color will be added via JS */
+}
+
+/* Ball color classes with glow */
+.ball-color-1 { background-color: #fbc531; box-shadow: 0 0 20px #fbc531; } /* Yellow */
+.ball-color-2 { background-color: #487eb0; box-shadow: 0 0 20px #487eb0; } /* Blue */
+.ball-color-3 { background-color: #e84118; box-shadow: 0 0 20px #e84118; } /* Red */
+.ball-color-4 { background-color: #7f8fa6; box-shadow: 0 0 20px #7f8fa6; } /* Gray */
+.ball-color-5 { background-color: #27ae60; box-shadow: 0 0 20px #27ae60; } /* Green */
+
+
+/* Generate Button */
+.btn {
+    background: #8e44ad; /* Vibrant purple */
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px; /* Pill shape */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px #8e44ad, 0 0 30px #8e44ad, inset 0 0 10px rgba(255,255,255,0.2);
+}
+
+.btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px #8e44ad, 0 0 40px #8e44ad, inset 0 0 10px rgba(255,255,255,0.3);
+}
+
+.btn:active {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 5px 15px #8e44ad, 0 0 30px #8e44ad, inset 0 0 10px rgba(255,255,255,0.3);
+}
+
+/* Animation for balls appearing */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 2rem 1.5rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        font-size: 1.2rem;
+        padding: 0.8rem 2rem;
+    }
+}
